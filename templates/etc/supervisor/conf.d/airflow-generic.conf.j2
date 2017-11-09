@@ -1,6 +1,6 @@
 [program:airflow-{{ service | replace('-', '') | replace(' ', '_') }}]
 
-command={{ airflow_install_directory }}/{{ service | replace('-', '') | replace(' ', '_') }}_start.sh
+command={{ airflow_install_directory }}/{{ service | replace('-', '') | replace(' ', '-') }}_start.sh
 environment=AIRFLOW_HOME="{{ airflow_install_directory }}"
 
 user={{ airflow_user }}
@@ -8,7 +8,7 @@ user={{ airflow_user }}
 autostart=true
 autorestart=true
 
-stdout_logfile={{ celery_log_dir }}/airflow-{{ service | replace('-', '') | replace(' ', '_') }}.log
+stdout_logfile={{ celery_log_dir }}/airflow-{{ service | replace('-', '') | replace(' ', '-') }}.log
 redirect_stderr = true
 
 priority=1001
