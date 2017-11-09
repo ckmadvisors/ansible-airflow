@@ -1,6 +1,6 @@
 [program:airflow-{{ service | replace('-', '') | replace(' ', '_') }}]
 
-command={{ airflow_install_directory }}/{{ service | replace('-', '') | replace(' ', '-') }}_start.sh
+command={{ airflow_install_directory }}/{{ service | replace('-', '') | replace(' ', '-') }}-start.sh
 environment=AIRFLOW_HOME="{{ airflow_install_directory }}"
 
 user={{ airflow_user }}
