@@ -1,4 +1,4 @@
-[program:airflow-{{ service | replace('-', '') | replace(' ', '_') }}]
+[program:airflow-{{ service | replace('-', '') | replace(' ', '_') | replace(',','_') }}]
 
 command={{ airflow_install_directory }}/{{ service | replace('-', '') | replace(' ', '-')| replace(',', '-') }}-start.sh
 environment=AIRFLOW_HOME="{{ airflow_install_directory }}"
