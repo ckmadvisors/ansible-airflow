@@ -6,7 +6,7 @@
     - supervisor
 
 - name: Ensure supervisor service is started
-  service: name=supervisor state=started enabled=yes
+  service: name={{ supervisor_service }} state=started enabled=yes
   tags:
     - supervisor
 

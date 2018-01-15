@@ -20,6 +20,7 @@ airflow_extra_packages:
 use_systemd: yes
 
 use_supervisor: no
+supervisor_service: supervisor
 
 ### custom startup script template ###
 # if you need to define environment variable or otherwise set things up before

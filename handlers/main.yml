@@ -14,7 +14,7 @@
   with_items: "{{ airflow_services }}"
 
 - name: restart supervisord
-  service: name=supervisor state={{ item }}
+  service: name={{ supervisor_service }} state={{ item }}
   with_items:
     - stopped
     - started
