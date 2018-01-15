@@ -1,7 +1,7 @@
 ---
 
 - name: Install Supervisor
-  package: name=supervisor state=installed
+  package: name=supervisor state=present
   tags:
     - supervisor
 
