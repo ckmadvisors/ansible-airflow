@@ -22,6 +22,10 @@ use_systemd: yes
 
 use_supervisor: no
 supervisor_service: supervisor
+supervisor_conf_dir: /etc/supervisor
+supervisor_conf: "{{ supervisor_conf_dir }}/supervisord.conf"
+supervisor_extra_conf_dir: "{{ supervisor_conf_dir }}/conf.d"
+supervisor_conf_extension: ".conf"
 
 ### custom startup script template ###
 # if you need to define environment variable or otherwise set things up before

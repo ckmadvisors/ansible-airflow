@@ -25,14 +25,14 @@
     - root
 
 - name: remove line current chmod line from supervisor global config
-  lineinfile: dest=/etc/supervisor/supervisord.conf
+  lineinfile: dest={{ supervisor_conf }}
               state=absent
               regexp='^chmod=0700'
   notify: restart supervisord
 
 - name: add lines to supervisor global config to set permissions on socket
   blockinfile:
-    dest: /etc/supervisor/supervisord.conf
+    dest: "{{ supervisor_conf }}"
     insertafter: "file=/var/run/supervisor\\.sock.*"
     block: |
       chmod=0770 ; socket file mode (default 0700)
@@ -43,7 +43,7 @@
 - name: Copy over supervisor config template for each airflow service
   template:
     src: etc/supervisor/conf.d/airflow-generic.conf.j2
-    dest: /etc/supervisor/conf.d/airflow-{{ item | replace('-', '') | replace(' ', '-') | replace(',', '-') }}.conf
+    dest: "{{ supervisor_extra_conf_dir }}/airflow-{{ item | replace('-', '') | replace(' ', '-') | replace(',', '-') ~ supervisor_conf_extension }}"
   with_items: "{{ airflow_services }}"
   vars:
     service: "{{ item }}"
