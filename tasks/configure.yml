@@ -34,7 +34,7 @@
     state: link
     src: /usr/bin/airflow
     dest: /usr/local/bin/airflow
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' and virtualenv_path is not defined
+  when: (ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux') and virtualenv_path is not defined
   tags: 
     - airflow_configure
 
