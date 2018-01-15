@@ -8,6 +8,7 @@ airflow_group: "{{ airflow_user }}"
 airflow_package: apache-airflow
 airflow_version: 1.8.1
 airflow_install_directory: /usr/share/airflow
+airflow_base_log_folder: "{{ airflow_install_directory }}/logs"
 airflow_bin: "/usr/local/bin/airflow"
 
 # extra packages to be installed with airflow
@@ -43,7 +44,7 @@ default_airflow:
   core:
     airflow_home: "{{ airflow_install_directory }}"
     dags_folder: "{{ airflow_install_directory }}/dags"
-    base_log_folder: "{{ airflow_install_directory }}/logs"
+    base_log_folder: "{{ airflow_base_log_folder }}"
     sql_alchemy_conn: sqlite://{{ airflow_install_directory }}/airflow.db
     sql_alchemy_pool_size: 5
     sql_alchemy_pool_recycle: 3600
@@ -126,7 +127,7 @@ default_airflow:
     print_stats_interval: 30
     scheduler_zombie_task_threshold: 300
     catchup_by_default: True
-    child_process_log_directory: "{{ airflow_install_directory }}/logs/scheduler"
+    child_process_log_directory: "{{ airflow_base_log_folder }}/scheduler"
     statsd_on: False
     statsd_host: localhost
     statsd_port: 8125
