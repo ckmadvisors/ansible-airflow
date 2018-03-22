@@ -13,7 +13,7 @@ You will require sudo access to the host being provisioned, use the following to
   hosts: airflow_hosts
   become: yes
   roles:
-    - creditcardscom.airflow
+    - marcusianlevine.airflow
 ```
 
 ## Role Variables
