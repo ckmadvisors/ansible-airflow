@@ -6,7 +6,7 @@ airflow_group: "{{ airflow_user }}"
 
 # airflow version to be installed
 airflow_package: apache-airflow
-airflow_version: 1.8.1
+airflow_version: 1.9.0
 airflow_install_directory: /usr/share/airflow
 airflow_base_log_folder: "{{ airflow_install_directory }}/logs"
 airflow_bin: "/usr/local/bin/airflow"
