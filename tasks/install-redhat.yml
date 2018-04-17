@@ -13,7 +13,7 @@
 
 - name: Install pip
   easy_install:
-    name: pip
+    name: pip==9.0.3
   tags: 
     - airflow_install
 

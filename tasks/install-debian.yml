@@ -2,7 +2,7 @@
 
 - name: Install python-pip
   apt:
-    name: python-pip
+    name: python-pip==9.0.3
     update_cache: "{{ ansible_env.ANSIBLE_CONTAINER is defined }}"
   tags:
     - airflow_install
