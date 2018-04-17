@@ -25,7 +25,7 @@
 
 # Workaround to pip install within ansible-container
 - name: Install airflow with raw command
-  command: "env -i PATH=$PATH bash -c 'source {{ virtualenv_path }}/bin/activate && pip --version && pip install {{ airflow_package }}[{{ airflow_extra_packages|join(',') }}]=={{ airflow_version }}'"
+  command: "env -i PATH=$PATH bash -c 'source {{ virtualenv_path }}/bin/activate && pip install --upgrade pip==9.0.3 && pip install {{ airflow_package }}[{{ airflow_extra_packages|join(',') }}]=={{ airflow_version }}'"
   when: ansible_env.ANSIBLE_CONTAINER is defined
 
 
