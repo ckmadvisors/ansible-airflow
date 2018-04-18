@@ -1,8 +1,13 @@
 ---
 
+
+- include: show_version.yml
+
 - include_vars: "/src/{{ item }}"
   with_items: "{{ vars_files }}"
   when: vars_files is defined and vars_files
+
+- include: show_version.yml
 
 - include: install.yml
 - include: configure.yml
