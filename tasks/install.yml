@@ -4,6 +4,15 @@
   tags: airflow_install
   when: ansible_os_family == 'Debian' or ansible_os_family == 'RedHat'
 
+# pip>=10.0.0 has incompatible top-level functions
+- name: Force pip version
+  pip:
+    name: "pip"
+    state: present
+    version: "9.0.3"
+  tags:
+    - airflow_install
+
 - name: Install airflow
   pip:
     name: "{{ airflow_package }}"
@@ -27,6 +36,3 @@
 - name: Install airflow with raw command
   command: "env -i PATH=$PATH bash -c 'source {{ virtualenv_path }}/bin/activate && pip install --upgrade pip==9.0.3 && pip install {{ airflow_package }}[{{ airflow_extra_packages|join(',') }}]=={{ airflow_version }}'"
   when: ansible_env.ANSIBLE_CONTAINER is defined
-
-
-
