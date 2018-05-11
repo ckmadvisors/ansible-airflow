@@ -41,8 +41,7 @@
 - name: Update pip version
   pip:
     name: "pip"
-    state: forcereinstall
-    version: latest
+    state: latest
     virtualenv: "{{ virtualenv_path|default(omit) }}"
   tags:
     - airflow_install
