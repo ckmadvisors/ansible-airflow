@@ -7,7 +7,7 @@
   with_items: "{{ vars_files }}"
   when: vars_files is defined and vars_files
 
-- include: show_version.yml
+# - include: show_version.yml
 
 - include: install.yml
 - include: configure.yml
