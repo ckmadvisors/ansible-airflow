@@ -8,8 +8,9 @@
 - name: Force pip version
   pip:
     name: "pip"
-    state: present
+    state: forcereinstall
     version: "9.0.3"
+    virtualenv: "{{ virtualenv_path|default(omit) }}"
   tags:
     - airflow_install
 
